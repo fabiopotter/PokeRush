@@ -7,7 +7,7 @@ export const getTypeColor = (type: string): string => {
     'Fogo': 'bg-red-100 text-red-800',
     'Água': 'bg-blue-100 text-blue-800',
     'Elétrico': 'bg-yellow-100 text-yellow-800',
-    'Grama': 'bg-green-100 text-green-800',
+    'Planta': 'bg-green-100 text-green-800',
     'Gelo': 'bg-cyan-100 text-cyan-800',
     'Lutador': 'bg-orange-100 text-orange-800',
     'Veneno': 'bg-purple-100 text-purple-800',

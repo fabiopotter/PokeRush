@@ -15,6 +15,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
+    {
+      url: `${baseUrl}/guias`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/pokedex`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/jogos`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/noticias`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
   ]
 
   // Páginas de Pokémon

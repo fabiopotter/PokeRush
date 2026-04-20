@@ -4,84 +4,78 @@ export const newsData: News[] = [
   {
     title: "Pokémon Champions Gera Debate na Comunidade",
     slug: "pokemon-champions-gera-debate-na-comunidade",
-    excerpt: "Fãs discutem mudanças radicais no sistema de batalhas competitivas.",
-    coverImage: "/images/news/champions-debate.jpg",
-    content: `Pokémon Champions trouxe controvérsias sobre o novo formato competitivo. Jogadores veteranos questionam as mudanças no meta game, enquanto novatos veem oportunidades.
+    excerpt: "Novo foco competitivo divide opiniões entre veteranos e jogadores casuais.",
+    coverImage: "/images/games/pokemon-champions-capa.jpeg",
+    content: `Pokémon Champions reacendeu a discussão sobre o futuro do competitivo. Parte da comunidade gostou da proposta mais direta, enquanto outra parte teme perder profundidade e tradição.
 
-A comunidade está dividida entre abraçar as inovações e manter as tradições. O debate se concentra em como as novas mecânicas afetarão torneios e estratégias estabelecidas.
-
-Para entender melhor o jogo, confira nosso guia completo sobre Pokémon Champions e explore os Pokémon mais competitivos como Charizard e Mewtwo.`,
+Para entrar no assunto sem perder tempo, use os links sugeridos abaixo com o guia principal, o jogo e os Pokémon mais ligados ao debate.`,
     publishedAt: "2024-03-15T08:00:00Z",
+    relatedGuides: ["pokemon-champions-o-que-ja-se-sabe", "como-montar-time-balanceado"],
     relatedGame: "pokemon-champions",
     relatedPokemon: ["charizard", "mewtwo", "alakazam", "metagross"]
   },
   {
     title: "Pokópia: Primeiras Impressões",
     slug: "pokopia-primeiras-impressoes",
-    excerpt: "Jogadores compartilham experiências iniciais do jogo indie inovador.",
-    coverImage: "/images/news/pokopia-impressions.jpg",
-    content: `Pokópia surpreende com sua abordagem única para a captura de Pokémon. O sistema de timing preciso e as mecânicas de crafting estão conquistando jogadores criativos.
+    excerpt: "Jogo indie chama atenção por captura diferente e clima mais experimental.",
+    coverImage: "/images/games/pokopia-capa.jpeg",
+    content: `Pokópia estreou com uma proposta mais criativa e menos presa ao padrão da série principal. As primeiras impressões destacam exploração livre, ritmo leve e curiosidade constante.
 
-Os primeiros reviews destacam a liberdade de exploração e a narrativa emergente. O jogo indie mostra que ainda há espaço para inovações no universo Pokémon.
-
-Para começar sua jornada, veja nosso guia inicial completo sobre Pokópia e conheça Pokémon únicos como Miraidon e os lendários Rayquaza e Lugia.`,
+Se a proposta te interessou, os links abaixo ajudam a continuar a navegação pelos conteúdos mais importantes desse tema.`,
     publishedAt: "2024-03-18T10:30:00Z",
+    relatedGuides: ["pokopia-guia-inicial", "melhor-ordem-jogar-pokemon"],
     relatedGame: "pokopia",
     relatedPokemon: ["eevee", "miraidon", "rayquaza", "lugia", "ho-oh"]
   },
   {
     title: "Ondas e Ventos: O Que Esperar",
     slug: "ondas-e-ventos-o-que-esperar",
-    excerpt: "Novas mecânicas prometem revolucionar Scarlet & Violet.",
-    coverImage: "/images/news/waves-winds.jpg",
-    content: `A DLC Ondas e Ventos trará mudanças significativas no gameplay de Scarlet & Violet. Novos Pokémon, áreas exploráveis e mecânicas inovadoras estão confirmadas.
+    excerpt: "Expansão pode renovar Scarlet & Violet com conteúdo pós-jogo e novas rotas.",
+    coverImage: "/images/games/pkmondas.jpeg",
+    content: `Ondas e Ventos surge como aposta para dar novo fôlego a Scarlet & Violet. A expectativa está em mais exploração, desafios extras e Pokémon que podem ganhar espaço no meta.
 
-Jogadores podem esperar conteúdo pós-jogo substancial com desafios únicos. A expansão promete manter a comunidade engajada por meses.
-
-Prepare-se explorando nosso guia completo de Scarlet & Violet e conheça Pokémon como Greninja, Cinderace e os lendários Zacian e Metagross.`,
+Os links sugeridos abaixo servem como atalho para os melhores pontos de entrada relacionados ao tema.`,
     publishedAt: "2024-03-22T14:00:00Z",
+    relatedGuides: ["melhores-pokemon-para-iniciantes", "fraquezas-tipo-agua"],
     relatedGame: "scarlet-violet",
     relatedPokemon: ["greninja", "cinderace", "zacian", "metagross", "koraidon"]
   },
   {
     title: "Atualizações Recentes do Pokémon Unite",
     slug: "atualizacoes-recentes-pokemon-unite",
-    excerpt: "Novos Pokémon e balanceamentos chegam ao MOBA estratégico.",
-    coverImage: "/images/news/unite-updates.jpg",
-    content: `Pokémon Unite recebeu atualizações significativas com novos personagens e ajustes de balanceamento. Mewtwo e Greninja agora estão disponíveis, trazendo novas estratégias para o meta game.
+    excerpt: "Balanceamentos e ajustes recentes mudam prioridades dentro do meta.",
+    coverImage: "/images/games/pokemon-unite-capa.jpeg",
+    content: `Pokémon Unite segue mexendo no meta com ajustes frequentes de balanceamento. Isso muda picks prioritários, abre espaço para testes e altera a forma como muita gente monta composições.
 
-As mudanças no matchmaking e sistema de ranqueamento estão melhorando a experiência competitiva. A comunidade está animada com o futuro do jogo.
-
-Para dominar o Unite, confira nossas dicas iniciais e conheça Pokémon como Pikachu, Lucario e os recém-chegados Mewtwo e Greninja.`,
+Para acompanhar melhor essas mudanças, confira os links sugeridos abaixo.`,
     publishedAt: "2024-04-01T12:00:00Z",
+    relatedGuides: ["melhores-pokemon-para-iniciantes", "como-montar-time-balanceado"],
     relatedGame: "pokemon-unite",
     relatedPokemon: ["pikachu", "lucario", "mewtwo", "greninja"]
   },
   {
     title: "Eventos Pokémon do Mês",
     slug: "eventos-pokemon-do-mes",
-    excerpt: "Celebrações especiais e conteúdos temporários em destaque.",
-    coverImage: "/images/news/monthly-events.jpg",
-    content: `Abril traz eventos especiais em vários jogos Pokémon. Scarlet & Violet tem o evento de aniversário com Pokémon raros, enquanto Unite oferece desafios sazonais.
+    excerpt: "Agenda do mês concentra eventos, recompensas extras e retorno de Pokémon populares.",
+    coverImage: "/images/games/scarlet-violet-capa.jpeg",
+    content: `Os eventos do mês costumam puxar o interesse da comunidade por capturas especiais, desafios temporários e recompensas rápidas. É o tipo de notícia que funciona bem como porta de entrada para outros conteúdos.
 
-Não perca oportunidades de capturar Pokémon exclusivos e ganhar recompensas especiais. Os eventos mensais mantêm a comunidade ativa e engajada.
-
-Aproveite ao máximo explorando nossos guias de eventos e conhecendo Pokémon como Eevee, Pikachu e os lendários Mew e Mewtwo.`,
+Os links sugeridos abaixo ajudam a continuar a jornada sem enrolação.`,
     publishedAt: "2024-04-05T09:00:00Z",
+    relatedGuides: ["melhores-pokemon-para-iniciantes", "melhor-ordem-jogar-pokemon"],
     relatedGame: "scarlet-violet",
     relatedPokemon: ["eevee", "pikachu", "mew", "mewtwo", "lucario"]
   },
   {
     title: "Destaques Recentes do Universo Pokémon",
     slug: "destaques-recentes-universo-pokemon",
-    excerpt: "Principais lançamentos e novidades que marcaram o mês.",
-    coverImage: "/images/news/pokemon-highlights.jpg",
-    content: `O universo Pokémon continua em expansão com Pokópia conquistando jogadores indie e Champions gerando debates competitivos. Scarlet & Violet recebe atualizações constantes.
+    excerpt: "Champions, Pokópia e Scarlet & Violet seguem puxando a atenção no momento.",
+    coverImage: "/images/games/scarlet-violet-capa.jpeg",
+    content: `Entre os destaques recentes, Pokópia chamou curiosos, Champions movimentou o competitivo e Scarlet & Violet continua central na conversa da comunidade. O cenário está bom para levar o leitor aos conteúdos mais fortes do site.
 
-A diversidade de experiências mostra a força da franquia. De jogos indie a títulos AAA, há conteúdo para todos os gostos.
-
-Explore todas as possibilidades com nossos guias completos e conheça Pokémon icônicos como Charizard, Pikachu, Eevee e os lendários Rayquaza e Lugia.`,
+Os links sugeridos abaixo fazem esse papel de forma direta.`,
     publishedAt: "2024-04-10T15:00:00Z",
+    relatedGuides: ["melhores-pokemon-para-iniciantes", "pokemon-champions-o-que-ja-se-sabe"],
     relatedGame: "scarlet-violet",
     relatedPokemon: ["charizard", "pikachu", "eevee", "rayquaza", "lugia", "mewtwo"]
   }

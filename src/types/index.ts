@@ -45,6 +45,7 @@ export interface News {
   coverImage: string;
   content: string;
   publishedAt: string; // formato ISO string
+  relatedGuides?: string[]; // slugs dos guias relacionados (opcional)
   relatedGame?: string; // slug do jogo relacionado (opcional)
   relatedPokemon?: string[]; // slugs dos Pokémon relacionados (opcional)
 }

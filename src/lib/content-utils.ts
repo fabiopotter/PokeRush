@@ -173,8 +173,16 @@ export class ContentUtils {
       }
     });
 
-    // Validar referências de jogos em notícias
+    // Validar referências em notícias
     news.forEach(newsItem => {
+      if (newsItem.relatedGuides) {
+        newsItem.relatedGuides.forEach(guideSlug => {
+          if (!this.findBySlug(guides, guideSlug)) {
+            errors.push(`Notícia "${newsItem.title}" referencia guia inexistente: ${guideSlug}`);
+          }
+        });
+      }
+
       if (newsItem.relatedGame && !this.findBySlug(games, newsItem.relatedGame)) {
         errors.push(`Notícia "${newsItem.title}" referencia jogo inexistente: ${newsItem.relatedGame}`);
       }

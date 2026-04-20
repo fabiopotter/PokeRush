@@ -5,7 +5,9 @@ import SectionTitle from '@/components/SectionTitle';
 import ContentCard from '@/components/ContentCard';
 import PokemonCard from '@/components/PokemonCard';
 import AdBlockPlaceholder from '@/components/AdBlockPlaceholder';
-import { getGuideBySlug, getRelatedGuidesForPokemon, getRelatedPokemonForGuide } from '@/lib/content';
+import { getGuideBySlug, getGuideBySlug as getGuide, getPokemonBySlug, getGameBySlug } from '@/lib/content';
+import { getGuideProfile } from '@/data/guide-profiles';
+import { internalLinkingStrategy } from '@/data/internal-linking';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -70,12 +72,22 @@ export default async function GuidePage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedPokemon = getRelatedPokemonForGuide(slug);
-  const relatedGuides = relatedPokemon.flatMap(pokemon => getRelatedGuidesForPokemon(pokemon.slug)).filter(g => g.slug !== slug).slice(0, 3);
+  const profile = getGuideProfile(slug);
+  const linking = internalLinkingStrategy.guides[slug];
+  const relatedPokemon = (linking?.pokemon ?? guide.relatedPokemon)
+    .map((pokemonSlug) => getPokemonBySlug(pokemonSlug))
+    .filter((pokemon): pokemon is NonNullable<typeof pokemon> => pokemon !== undefined);
+  const relatedGuides = (linking?.guides ?? [])
+    .map((guideSlug) => getGuide(guideSlug))
+    .filter((item): item is NonNullable<typeof item> => item !== undefined);
+  const relatedGame = linking?.game
+    ? getGameBySlug(linking.game)
+    : guide.relatedGame
+      ? getGameBySlug(guide.relatedGame)
+      : null;
 
   return (
     <article className="max-w-4xl mx-auto">
-      {/* Header */}
       <header className="mb-8">
         <div className="flex items-center gap-2 mb-4">
           <span className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded">
@@ -89,35 +101,67 @@ export default async function GuidePage({ params }: PageProps) {
         <p className="text-xl text-gray-600 leading-relaxed">{guide.excerpt}</p>
       </header>
 
-      {/* Table of Contents - Simples para MVP */}
-      {guide.content.includes('\n') && (
-        <nav className="bg-gray-50 p-6 rounded-lg mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Índice</h2>
-          <ul className="space-y-2">
-            <li><a href="#introducao" className="text-blue-600 hover:text-blue-700">Introdução</a></li>
-            <li><a href="#conteudo" className="text-blue-600 hover:text-blue-700">Conteúdo Principal</a></li>
-            <li><a href="#relacionados" className="text-blue-600 hover:text-blue-700">Conteúdos Relacionados</a></li>
-          </ul>
-        </nav>
+      {profile && (
+        <>
+          <nav className="bg-gray-50 p-6 rounded-lg mb-8">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Índice</h2>
+            <ul className="space-y-2">
+              <li><a href="#resumo" className="text-blue-600 hover:text-blue-700">Resumo</a></li>
+              <li><a href="#conteudo" className="text-blue-600 hover:text-blue-700">Conteúdo</a></li>
+              <li><a href="#faq" className="text-blue-600 hover:text-blue-700">FAQ</a></li>
+              <li><a href="#relacionados" className="text-blue-600 hover:text-blue-700">Relacionados</a></li>
+            </ul>
+          </nav>
+
+          <div className="prose prose-lg max-w-none mb-12">
+            <section id="resumo" className="mb-10">
+              <h2>Resumo</h2>
+              <p>{profile.summary}</p>
+            </section>
+
+            <section id="conteudo" className="mb-10">
+              <h2>Conteúdo</h2>
+              {profile.sections.map((section) => (
+                <div key={section.title} className="mb-8">
+                  <h3>{section.title}</h3>
+                  {section.paragraphs?.map((paragraph, index) => (
+                    <p key={`${section.title}-p-${index}`}>{paragraph}</p>
+                  ))}
+                  {section.bullets && (
+                    <ul>
+                      {section.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </section>
+
+            <section id="faq">
+              <h2>FAQ</h2>
+              {profile.faq.map((item) => (
+                <div key={item.question} className="mb-6">
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </div>
+              ))}
+            </section>
+          </div>
+        </>
       )}
 
-      {/* Main Content */}
-      <div className="prose prose-lg max-w-none mb-12">
-        <section id="introducao">
-          <h2>Introdução</h2>
-          <p>{guide.excerpt}</p>
-        </section>
+      {!profile && (
+        <div className="prose prose-lg max-w-none mb-12">
+          <section id="conteudo">
+            <h2>Conteúdo Principal</h2>
+            <div className="whitespace-pre-line">{guide.content}</div>
+          </section>
+        </div>
+      )}
 
-        <section id="conteudo">
-          <h2>Conteúdo Principal</h2>
-          <div className="whitespace-pre-line">{guide.content}</div>
-        </section>
-      </div>
-
-      {/* Ad Block */}
       <AdBlockPlaceholder position="guide-content" />
 
-      {/* Related Content */}
       <section id="relacionados" className="mb-12">
         <SectionTitle title="Conteúdos Relacionados" />
 
@@ -136,20 +180,19 @@ export default async function GuidePage({ params }: PageProps) {
           </div>
         )}
 
-        {guide.relatedGame && (
+        {relatedGame && (
           <div className="bg-blue-50 p-6 rounded-lg mb-8">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Jogo Relacionado</h3>
             <Link
-              href={`/jogos/${guide.relatedGame}`}
+              href={`/jogos/${relatedGame.slug}`}
               className="text-blue-600 hover:text-blue-700 font-medium"
             >
-              Ver informações sobre {guide.relatedGame} →
+              Ver informações sobre {relatedGame.name} →
             </Link>
           </div>
         )}
       </section>
 
-      {/* Related Pokemon */}
       {relatedPokemon.length > 0 && (
         <section className="mb-12">
           <SectionTitle title="Pokémon Relacionados" />
@@ -167,7 +210,6 @@ export default async function GuidePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Navigation */}
       <nav className="flex justify-between items-center pt-8 border-t border-gray-200">
         <Link
           href="/guias"

@@ -3,10 +3,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import SectionTitle from '@/components/SectionTitle';
-import ContentCard from '@/components/ContentCard';
 import GuideCard from '@/components/GuideCard';
 import PokemonCard from '@/components/PokemonCard';
-import { getNewsBySlug, getGuideBySlug, getPokemonBySlug, getGameBySlug } from '@/lib/content';
+import {
+  getNewsBySlug,
+  getRelatedGuidesForNews,
+  getRelatedPokemonForNews,
+  getRelatedGamesForNews
+} from '@/lib/content';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -70,9 +74,9 @@ export default async function NewsPage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedGuides = news.relatedGame ? [getGuideBySlug(news.relatedGame)].filter((guide): guide is NonNullable<typeof guide> => guide !== undefined) : [];
-  const relatedPokemon = news.relatedPokemon ? news.relatedPokemon.map(slug => getPokemonBySlug(slug)).filter((pokemon): pokemon is NonNullable<typeof pokemon> => pokemon !== undefined) : [];
-  const relatedGame = news.relatedGame ? getGameBySlug(news.relatedGame) : null;
+  const relatedGuides = getRelatedGuidesForNews(slug);
+  const relatedPokemon = getRelatedPokemonForNews(slug);
+  const relatedGame = getRelatedGamesForNews(slug)[0] ?? null;
 
   return (
     <article className="max-w-4xl mx-auto">

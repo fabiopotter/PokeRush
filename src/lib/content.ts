@@ -43,7 +43,7 @@ function validateDataIntegrity() {
   );
 
   if (errors.length > 0) {
-    console.warn('⚠️ Problemas de integridade referencial encontrados:');
+    console.warn('Problemas de integridade referencial encontrados:');
     errors.forEach(error => console.warn(`  - ${error}`));
   }
 }
@@ -198,6 +198,15 @@ export function getRelatedGamesForNews(newsSlug: string): Game[] {
 
   const game = getGameBySlug(news.relatedGame);
   return game ? [game] : [];
+}
+
+export function getRelatedGuidesForNews(newsSlug: string): Guide[] {
+  const news = getNewsBySlug(newsSlug);
+  if (!news?.relatedGuides) {
+    return [];
+  }
+
+  return ContentUtils.findMultipleBySlugs(getAllGuides(), news.relatedGuides);
 }
 
 export function getRelatedPokemonForNews(newsSlug: string): Pokemon[] {

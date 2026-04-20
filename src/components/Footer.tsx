@@ -5,7 +5,6 @@ export default function Footer() {
     <footer className="bg-gray-50 border-t border-gray-200 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold text-gray-900 mb-4">PokeRush</h3>
             <p className="text-gray-600 text-sm leading-relaxed max-w-md">
@@ -13,40 +12,37 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Links</h4>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Navegação</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/sobre" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Sobre
+                <Link href="/guias" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
+                  Guias
                 </Link>
               </li>
               <li>
-                <Link href="/politica-privacidade" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Política de Privacidade
+                <Link href="/pokedex" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
+                  Pokédex
                 </Link>
               </li>
               <li>
-                <Link href="/termos-uso" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Termos de Uso
+                <Link href="/jogos" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
+                  Jogos
                 </Link>
               </li>
               <li>
-                <Link href="/contato" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Contato
+                <Link href="/noticias" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
+                  Notícias
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Social/Extra */}
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Conecte-se</h4>
+            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Explorar</h4>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Siga-nos para as últimas novidades do mundo Pokémon.
+              Use as páginas de guias, jogos e Pokédex como portas de entrada para o restante do conteúdo editorial do site.
             </p>
-            {/* Placeholder para ícones sociais futuros */}
           </div>
         </div>
 

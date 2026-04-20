@@ -5,7 +5,7 @@ export const gamesData: Game[] = [
     name: "Scarlet & Violet",
     slug: "scarlet-violet",
     description: "A nova geração de Pokémon com mundo aberto em Paldea, oferecendo liberdade total de exploração e batalhas estratégicas.",
-    coverImage: "/images/games/scarlet-violet.jpg",
+    coverImage: "/images/games/scarlet-violet-capa.jpeg",
     targetAudience: "Indicado para jogadores que gostam de exploração livre e batalhas estratégicas. Ideal para iniciantes e veteranos que querem uma experiência completa de RPG.",
     mainMechanics: [
       "Mundo aberto com exploração livre em Paldea",
@@ -30,7 +30,7 @@ export const gamesData: Game[] = [
     name: "Pokémon Unite",
     slug: "pokemon-unite",
     description: "MOBA estratégico com Pokémon em batalhas 5v5, combinando estratégia rápida com o universo Pokémon.",
-    coverImage: "/images/games/pokemon-unite.jpg",
+    coverImage: "/images/games/pokemon-unite-capa.jpeg",
     targetAudience: "Perfeito para jogadores competitivos que gostam de jogos de equipe e estratégia rápida. Ideal para quem curte MOBAs como League of Legends.",
     mainMechanics: [
       "Batalhas 5v5 em arenas competitivas",
@@ -55,7 +55,7 @@ export const gamesData: Game[] = [
     name: "Pokópia",
     slug: "pokopia",
     description: "Jogo indie com mecânicas inovadoras de captura, oferecendo uma experiência única e criativa no universo Pokémon.",
-    coverImage: "/images/games/pokopia.jpg",
+    coverImage: "/images/games/pokopia-capa.jpeg",
     targetAudience: "Ideal para jogadores curiosos que buscam experiências únicas e criativas. Perfeito para quem quer algo diferente dos jogos tradicionais de Pokémon.",
     mainMechanics: [
       "Sistema inovador de captura baseado em timing e estratégia",
@@ -80,7 +80,7 @@ export const gamesData: Game[] = [
     name: "Pokémon Champions",
     slug: "pokemon-champions",
     description: "Novo título competitivo focado em batalhas estratégicas profundas, oferecendo o combate mais refinado da franquia.",
-    coverImage: "/images/games/champions.jpg",
+    coverImage: "/images/games/pokemon-champions-capa.jpeg",
     targetAudience: "Feito para treinadores experientes que querem batalhas profundas e competitivas. Ideal para jogadores veteranos que conhecem bem a mecânica de Pokémon.",
     mainMechanics: [
       "Sistema de batalhas competitivo refinado e estratégico",

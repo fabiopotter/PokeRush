@@ -4,7 +4,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Pikachu",
     slug: "pikachu",
-    image: "/images/pokemon/pikachu.jpg",
+    image: "/images/pokemon/pikachu.jpeg",
     types: ["Elétrico"],
     shortDescription: "Pequeno Pokémon elétrico conhecido por suas bochechas vermelhas e cauda em forma de raio.",
     weaknesses: ["Terra"],
@@ -28,7 +28,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Charizard",
     slug: "charizard",
-    image: "/images/pokemon/charizard.jpg",
+    image: "/images/pokemon/charizard.jpeg",
     types: ["Fogo", "Voador"],
     shortDescription: "Pokémon dragão flamejante com asas poderosas e cauda em chamas.",
     weaknesses: ["Água", "Elétrico", "Pedra"],
@@ -40,7 +40,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Bulbasaur",
     slug: "bulbasaur",
-    image: "/images/pokemon/bulbasaur.jpg",
+    image: "/images/pokemon/bulbasaur.jpeg",
     types: ["Planta", "Venenoso"],
     shortDescription: "Pequeno Pokémon planta com uma semente nas costas que cresce conforme evolui.",
     weaknesses: ["Fogo", "Voador", "Psíquico", "Gelo"],
@@ -64,7 +64,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Charmander",
     slug: "charmander",
-    image: "/images/pokemon/charmander.jpg",
+    image: "/images/pokemon/charmander.jpeg",
     types: ["Fogo"],
     shortDescription: "Pequeno Pokémon lagarto com uma chama na cauda que indica seu estado emocional.",
     weaknesses: ["Água", "Terra", "Pedra"],
@@ -88,7 +88,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Blastoise",
     slug: "blastoise",
-    image: "/images/pokemon/blastoise.jpg",
+    image: "/images/pokemon/blastoise.jpeg",
     types: ["Água"],
     shortDescription: "Pokémon tartaruga gigante com canhões de água nas costas para ataques poderosos.",
     weaknesses: ["Planta", "Elétrico"],
@@ -112,7 +112,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Gengar",
     slug: "gengar",
-    image: "/images/pokemon/gengar.jpg",
+    image: "/images/pokemon/gengar.jpeg",
     types: ["Fantasma", "Venenoso"],
     shortDescription: "Pokémon fantasma sorridente conhecido por suas travessuras e ataques assombrados.",
     weaknesses: ["Sombrio", "Psíquico", "Terra", "Fantasma"],
@@ -124,7 +124,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Lucario",
     slug: "lucario",
-    image: "/images/pokemon/lucario.jpg",
+    image: "/images/pokemon/lucario.jpeg",
     types: ["Lutador", "Metálico"],
     shortDescription: "Pokémon lobo aura com sentidos aguçados e ataques baseados em energia vital.",
     weaknesses: ["Fogo", "Lutador", "Terra"],
@@ -220,7 +220,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Arcanine",
     slug: "arcanine",
-    image: "/images/pokemon/arcanine.jpg",
+    image: "/images/pokemon/arcanine.jpeg",
     types: ["Fogo"],
     shortDescription: "Pokémon cão lendário com pelagem flamejante e velocidade impressionante.",
     weaknesses: ["Água", "Terra", "Pedra"],
@@ -352,7 +352,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Alakazam",
     slug: "alakazam",
-    image: "/images/pokemon/alakazam.jpg",
+    image: "/images/pokemon/alakazam.jpeg",
     types: ["Psíquico"],
     shortDescription: "Pokémon psíquico com poderes telepáticos extraordinários.",
     weaknesses: ["Inseto", "Fantasma", "Sombrio"],
@@ -448,7 +448,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Cinderace",
     slug: "cinderace",
-    image: "/images/pokemon/cinderace.jpg",
+    image: "/images/pokemon/cinderace.jpeg",
     types: ["Fogo"],
     shortDescription: "Pokémon coelho de fogo com chutes poderosos e precisos.",
     weaknesses: ["Água", "Terra", "Pedra"],
@@ -496,7 +496,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Annihilape",
     slug: "annihilape",
-    image: "/images/pokemon/annihilape.jpg",
+    image: "/images/pokemon/annihilape.jpeg",
     types: ["Lutador", "Fantasma"],
     shortDescription: "Pokémon gorila com raiva incontrolável e poderes fantasmagóricos.",
     weaknesses: ["Voador", "Psíquico", "Fantasma", "Fada"],
@@ -532,7 +532,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Ceruledge",
     slug: "ceruledge",
-    image: "/images/pokemon/ceruledge.jpg",
+    image: "/images/pokemon/ceruledge.jpeg",
     types: ["Fogo", "Fantasma"],
     shortDescription: "Pokémon espadachim com lâminas flamejantes e espírito vingativo.",
     weaknesses: ["Água", "Terra", "Pedra", "Sombrio", "Fantasma"],
@@ -544,7 +544,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Armarouge",
     slug: "armarouge",
-    image: "/images/pokemon/armarouge.jpg",
+    image: "/images/pokemon/armarouge.jpeg",
     types: ["Fogo", "Psíquico"],
     shortDescription: "Pokémon artilheiro com canhão psíquico e armadura resistente.",
     weaknesses: ["Água", "Terra", "Pedra", "Sombrio", "Fantasma"],

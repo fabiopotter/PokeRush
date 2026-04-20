@@ -4,8 +4,10 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import SectionTitle from '@/components/SectionTitle';
 import GuideCard from '@/components/GuideCard';
-import { getPokemonBySlug, getRelatedGuidesForPokemon, getGameBySlug } from '@/lib/content';
+import { getPokemonBySlug, getGuideBySlug, getGameBySlug } from '@/lib/content';
 import { getTypeColor } from '@/lib/utils';
+import { getPokemonProfile } from '@/data/pokedex-profiles';
+import { internalLinkingStrategy } from '@/data/internal-linking';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -68,8 +70,18 @@ export default async function PokemonPage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedGuides = getRelatedGuidesForPokemon(slug);
-  const games = pokemon.games.map(gameSlug => getGameBySlug(gameSlug)).filter((game): game is NonNullable<typeof game> => game !== undefined);
+  const profile = getPokemonProfile(slug);
+  const linking = internalLinkingStrategy.pokemon[slug];
+  const relatedGuides = (linking?.guides ?? pokemon.relatedGuides)
+    .map(guideSlug => getGuideBySlug(guideSlug))
+    .filter((guide): guide is NonNullable<typeof guide> => guide !== undefined);
+  const gameSlugs = linking?.game ? [linking.game, ...pokemon.games.filter(gameSlug => gameSlug !== linking.game)] : pokemon.games;
+  const games = gameSlugs
+    .map(gameSlug => getGameBySlug(gameSlug))
+    .filter((game): game is NonNullable<typeof game> => game !== undefined);
+  const evolutionChain = pokemon.evolutions
+    .map(evoSlug => getPokemonBySlug(evoSlug))
+    .filter((evo): evo is NonNullable<typeof evo> => evo !== undefined);
 
   return (
     <article className="max-w-4xl mx-auto">
@@ -85,7 +97,7 @@ export default async function PokemonPage({ params }: PageProps) {
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">{pokemon.name}</h1>
-        <div className="flex justify-center gap-2 mb-4">
+        <div className="flex justify-center gap-2 mb-4 flex-wrap">
           {pokemon.types.map((type) => (
             <span
               key={type}
@@ -98,9 +110,33 @@ export default async function PokemonPage({ params }: PageProps) {
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">{pokemon.shortDescription}</p>
       </header>
 
+      {/* Editorial Content */}
+      {profile && (
+        <section className="mb-12">
+          <SectionTitle title="Resumo" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">Visão Geral</h2>
+              <p className="text-gray-700 leading-relaxed">{profile.overview}</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">Uso Prático</h2>
+              <p className="text-gray-700 leading-relaxed">{profile.practicalUse}</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg border border-gray-200">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">Melhor Encaixe</h2>
+              <p className="text-gray-700 leading-relaxed">{profile.bestFor}</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">Curiosidade</h2>
+              <p className="text-gray-700 leading-relaxed">{profile.curiosity}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        {/* Weaknesses */}
         <div className="bg-red-50 p-6 rounded-lg">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Fraquezas</h2>
           <div className="flex flex-wrap gap-2">
@@ -115,50 +151,50 @@ export default async function PokemonPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Resistances */}
         <div className="bg-green-50 p-6 rounded-lg">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Resistências</h2>
           <div className="flex flex-wrap gap-2">
-            {pokemon.resistances.map((resistance) => (
-              <span
-                key={resistance}
-                className={`inline-block text-sm font-medium px-3 py-1 rounded-full ${getTypeColor(resistance)}`}
-              >
-                {resistance}
-              </span>
-            ))}
+            {pokemon.resistances.length > 0 ? (
+              pokemon.resistances.map((resistance) => (
+                <span
+                  key={resistance}
+                  className={`inline-block text-sm font-medium px-3 py-1 rounded-full ${getTypeColor(resistance)}`}
+                >
+                  {resistance}
+                </span>
+              ))
+            ) : (
+              <p className="text-gray-700">Sem destaque defensivo relevante fora das interações padrão do tipo.</p>
+            )}
           </div>
         </div>
       </div>
 
       {/* Evolution Line */}
-      {pokemon.evolutions.length > 0 && (
+      {evolutionChain.length > 0 && (
         <section className="mb-12">
           <SectionTitle title="Linha Evolutiva" />
           <div className="bg-blue-50 p-6 rounded-lg">
             <div className="flex flex-wrap items-center gap-4">
-              {pokemon.evolutions.map((evoSlug, index) => {
-                const evo = getPokemonBySlug(evoSlug);
-                return (
-                  <div key={evoSlug} className="flex items-center">
-                    {index > 0 && <span className="text-2xl text-blue-600 mx-2">→</span>}
-                    <Link
-                      href={`/pokedex/${evoSlug}`}
-                      className="flex flex-col items-center hover:opacity-75 transition-opacity"
-                    >
-                      <div className="relative w-16 h-16 mb-2">
-                        <Image
-                          src={evo?.image || '/placeholder.jpg'}
-                          alt={evo?.name || evoSlug}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                      <span className="text-sm font-medium text-gray-900">{evo?.name || evoSlug}</span>
-                    </Link>
-                  </div>
-                );
-              })}
+              {evolutionChain.map((evo, index) => (
+                <div key={evo.slug} className="flex items-center">
+                  {index > 0 && <span className="text-2xl text-blue-600 mx-2">→</span>}
+                  <Link
+                    href={`/pokedex/${evo.slug}`}
+                    className="flex flex-col items-center hover:opacity-75 transition-opacity"
+                  >
+                    <div className="relative w-16 h-16 mb-2">
+                      <Image
+                        src={evo.image}
+                        alt={evo.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-gray-900">{evo.name}</span>
+                  </Link>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -167,7 +203,7 @@ export default async function PokemonPage({ params }: PageProps) {
       {/* Games */}
       {games.length > 0 && (
         <section className="mb-12">
-          <SectionTitle title="Aparece em" />
+          <SectionTitle title="Jogos Relacionados" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {games.map((game) => (
               <Link
