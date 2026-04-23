@@ -1,0 +1,142 @@
+import type { PokemonProfile } from './pokedex-profiles';
+
+export const first30PokemonProfiles: Record<string, PokemonProfile> = {
+  ivysaur: {
+    overview: "Ivysaur é um intermediário muito confiável, com mais presença do que Bulbasaur e boa leitura de utilidade para campanha.",
+    practicalUse: "Ele ajuda a estabilizar o time no mid game, segurando Água, Planta e trocas em que sustain e consistência valem mais do que explosão.",
+    bestFor: "Funciona muito bem para jogadores que gostam de evolução gradual e querem valor real também na fase intermediária da linha.",
+    curiosity: "Ivysaur costuma render mais do que parece porque já entrega bem a identidade estável e utilitária da linha de Bulbasaur.",
+  },
+  charmeleon: {
+    overview: "Charmeleon é a fase em que a linha passa a jogar com bem mais iniciativa e segurança. Ele já impõe respeito sem depender da forma final.",
+    practicalUse: "Serve para manter ritmo agressivo no meio da campanha, pressionando Planta, Inseto e outros matchups em que Fogo já resolve sem muito apoio.",
+    bestFor: "Indicado para jogadores que gostam de sentir a progressão ofensiva da linha e querem um meio-termo entre fragilidade e dominação.",
+    curiosity: "Charmeleon costuma ser subestimado por viver à sombra de Charizard, embora já mostre muito bem a identidade agressiva da linha.",
+  },
+  wartortle: {
+    overview: "Wartortle é um intermediário estável, com boa segurança defensiva e função clara enquanto a linha amadurece.",
+    practicalUse: "Entra bem em campanhas para segurar Fogo, Pedra e lutas mais longas, dando consistência ao time antes da chegada de Blastoise.",
+    bestFor: "Muito bom para jogadores que preferem progressão segura e equipes que vencem mais por regularidade do que por risco alto.",
+    curiosity: "Wartortle transmite bem o crescimento da linha porque já parece robusto e confiável antes mesmo da forma final.",
+  },
+  caterpie: {
+    overview: "Caterpie existe mais para acelerar a linha evolutiva do que para carregar confrontos por conta própria.",
+    practicalUse: "Seu valor prático está em evoluir cedo e levar o jogador rapidamente a Butterfree, onde a linha realmente ganha utilidade de campanha.",
+    bestFor: "Boa escolha para quem gosta de sentir progresso rápido e não se importa com uma fase inicial mais fraca.",
+    curiosity: "Caterpie ficou clássico por representar a ideia de evolução rápida logo nas primeiras rotas da jornada.",
+  },
+  metapod: {
+    overview: "Metapod é uma etapa de transição pura, com pouco impacto direto e foco total em completar a metamorfose da linha.",
+    practicalUse: "Na campanha, ele funciona como uma parada curta antes de Butterfree, sem exigir grande investimento tático do jogador.",
+    bestFor: "Vale para quem está seguindo a linha de Caterpie e quer aceitar uma fase intermediária fraca em troca de valor rápido depois.",
+    curiosity: "Metapod continua sendo um dos exemplos mais lembrados de Pokémon pensado para representar transformação mais do que combate.",
+  },
+  butterfree: {
+    overview: "Butterfree oferece utilidade cedo, com acesso a status, cobertura especial e boa presença em campanhas iniciais.",
+    practicalUse: "Funciona muito bem para controlar lutas, espalhar status e punir matchups em que utilidade vale mais do que dano bruto.",
+    bestFor: "Excelente para jogadores que gostam de valor tático logo cedo e preferem função clara a números impressionantes.",
+    curiosity: "Butterfree segue querido porque mostra logo no começo da jornada como controle e utilidade podem decidir batalhas.",
+  },
+  weedle: {
+    overview: "Weedle é a base de uma linha que amadurece cedo e recompensa quem quer montar elenco rapidamente nas primeiras rotas.",
+    practicalUse: "Seu valor está em acelerar a chegada de Beedrill, oferecendo uma rota rápida para um Inseto com presença ofensiva simples.",
+    bestFor: "Bom para jogadores que gostam de evolução cedo e de preencher o time com peças acessíveis logo no início.",
+    curiosity: "Weedle sempre foi lembrado como o contraponto de Caterpie, com a mesma pressa de evoluir, mas outra identidade de linha.",
+  },
+  kakuna: {
+    overview: "Kakuna é outra etapa de passagem, com pouca autonomia em batalha e foco total em preparar Beedrill.",
+    practicalUse: "Serve como transição curta para quem está investindo na linha e quer chegar logo a um Pokémon com utilidade mais clara.",
+    bestFor: "Faz sentido para jogadores pacientes com fases intermediárias breves em troca de progresso rápido.",
+    curiosity: "Kakuna reforça a cara de metamorfose acelerada que marcou as primeiras linhas de inseto da franquia.",
+  },
+  beedrill: {
+    overview: "Beedrill é um Inseto/Venenoso agressivo para fases iniciais e intermediárias, com papel bem mais ofensivo do que a linha de Butterfree.",
+    practicalUse: "Ajuda a manter ritmo alto na campanha, pressionando alvos que cedem a Inseto ou Venenoso e punindo espaços livres cedo.",
+    bestFor: "Boa escolha para jogadores que preferem ofensiva direta e gostam de linhas que amadurecem rapidamente.",
+    curiosity: "Beedrill sempre chamou atenção por transformar uma linha simples de rota inicial em algo visualmente ameaçador.",
+  },
+  pidgey: {
+    overview: "Pidgey é um dos voadores mais amigáveis para campanha, com curva de aprendizado simples e boa utilidade geral nas primeiras rotas.",
+    practicalUse: "Serve para cobrir Planta e Inseto, manter consistência em lutas comuns e ensinar bem o valor de velocidade e dano estável.",
+    bestFor: "Excelente para iniciantes que querem um parceiro seguro e intuitivo no começo da jornada.",
+    curiosity: "Pidgey virou símbolo de rota inicial justamente por cumprir seu papel com simplicidade e regularidade.",
+  },
+  pidgeotto: {
+    overview: "Pidgeotto melhora a proposta de Pidgey com mais presença e melhor capacidade de sustentar o time no meio da campanha.",
+    practicalUse: "Encaixa como atacante leve e consistente, ajudando a manter ritmo enquanto o restante da equipe ainda evolui.",
+    bestFor: "Muito bom para jogadores que gostam de linhas previsíveis, seguras e quase sempre úteis.",
+    curiosity: "Pidgeotto costuma ser uma das evoluções intermediárias mais naturais da Gen 1 porque o ganho de estabilidade aparece logo.",
+  },
+  pidgeot: {
+    overview: "Pidgeot entrega estabilidade, boa velocidade e um papel de voador clássico de campanha sem exigir muita preparação.",
+    practicalUse: "Vai bem em equipes que querem um atacante confiável para manter ritmo e cobrir matchups simples ao longo da jornada.",
+    bestFor: "Indicado para quem quer um Normal/Voador seguro, fácil de encaixar e com valor de campanha bem claro.",
+    curiosity: "Pidgeot se tornou um ícone de jornada clássica por representar muito bem o parceiro que acompanha o time até o fim.",
+  },
+  rattata: {
+    overview: "Rattata é um Normal rápido e direto, mais valioso por iniciativa e praticidade do que por grande impacto bruto.",
+    practicalUse: "Ajuda a limpar lutas menores e a preencher o time no início, especialmente quando velocidade e golpes simples já bastam.",
+    bestFor: "Bom para jogadores que querem uma peça comum de rota com uso objetivo e sem curva complicada.",
+    curiosity: "Rattata ficou marcado como exemplo de Pokémon simples que ainda consegue utilidade real em boa parte da campanha.",
+  },
+  raticate: {
+    overview: "Raticate amplia a proposta de Rattata com mais presença física e melhor capacidade de pressionar no meio do jogo.",
+    practicalUse: "Funciona como atacante direto em equipes casuais que querem dano limpo e pouca dependência de setup.",
+    bestFor: "Vale para jogadores que gostam de Pokémon comuns de rota que continuam ajudando por bastante tempo.",
+    curiosity: "Raticate sempre foi um bom retrato de evolução funcional: sem glamour, mas com valor prático consistente.",
+  },
+  spearow: {
+    overview: "Spearow é um voador inicial com proposta mais agressiva e menos confortável do que a linha de Pidgey.",
+    practicalUse: "Serve para quem quer um Normal/Voador de rota com postura mais ofensiva e ataque mais direto nas primeiras etapas.",
+    bestFor: "Boa opção para jogadores que preferem linhas mais impacientes e objetivas no início da campanha.",
+    curiosity: "Spearow costuma ser lembrado como a alternativa mais dura e menos amistosa ao estilo clássico de Pidgey.",
+  },
+  fearow: {
+    overview: "Fearow transforma a linha de Spearow em uma opção ofensiva mais definida, com boa velocidade e pressão direta.",
+    practicalUse: "Vai bem como atacante de campanha quando o time quer um Voador mais assertivo para explorar matchups simples.",
+    bestFor: "Indicado para quem quer um Normal/Voador com mais iniciativa e menos cara de peça de suporte.",
+    curiosity: "Fearow não tem o mesmo carisma de Pidgeot, mas compensa com uma identidade ofensiva mais evidente.",
+  },
+  ekans: {
+    overview: "Ekans é um Venenoso situacional, mais interessante por atrito e status do que por explosão ofensiva.",
+    practicalUse: "Ajuda em campanhas que valorizam desgaste, controle de ritmo e matchups em que veneno e pressão progressiva fazem diferença.",
+    bestFor: "Funciona melhor para jogadores que gostam de linhas menos óbvias e de usar utilidade antes de dano bruto.",
+    curiosity: "Ekans tem apelo justamente por parecer simples, mas representar muito bem a fantasia de Pokémon traiçoeiro e oportunista.",
+  },
+  arbok: {
+    overview: "Arbok melhora o que Ekans propõe, com mais presença de campo e melhor capacidade de incomodar adversários por pressão e status.",
+    practicalUse: "Entra bem em equipes casuais que querem um Venenoso funcional para sustentar lutas sem depender só de força bruta.",
+    bestFor: "Boa escolha para quem gosta de Pokémon menos convencionais, mas ainda assim com papel claro em campanha.",
+    curiosity: "Arbok sempre chamou atenção por transformar a ideia de cobra intimidadora em uma identidade de batalha bem reconhecível.",
+  },
+  raichu: {
+    overview: "Raichu é a versão mais estável da linha elétrica de Pikachu, com impacto ofensivo melhor definido e função clara em campanha.",
+    practicalUse: "Ele serve para punir Água e Voador com mais segurança, mantendo o time ofensivo sem exigir uma leitura complicada de uso.",
+    bestFor: "Muito bom para jogadores que gostam da linha de Pikachu, mas querem uma forma com desempenho mais constante.",
+    curiosity: "Raichu vive à sombra do carisma de Pikachu, embora em batalha costume entregar uma experiência mais completa e objetiva.",
+  },
+  sandshrew: {
+    overview: "Sandshrew é um terrestre de campanha com proposta simples, mas muito funcional quando imunidade a Elétrico já muda o confronto.",
+    practicalUse: "Encaixa bem como resposta inicial a elétricos e como peça de apoio para equipes que precisam de um tipo Terra cedo.",
+    bestFor: "Boa opção para jogadores que valorizam utilidade defensiva clara e progressão sem muita complexidade.",
+    curiosity: "Sandshrew conquista espaço pela praticidade: entra, segura o que precisa e vai amadurecendo sem exagero.",
+  },
+  sandslash: {
+    overview: "Sandslash transforma a proposta de Sandshrew em algo bem mais estável, com corpo suficiente para sustentar o papel terrestre por boa parte da jornada.",
+    practicalUse: "Vai muito bem quando o time precisa de imunidade a Elétrico, boa presença contra Pedra e um terrestre confiável sem depender de setup.",
+    bestFor: "Indicado para jogadores que gostam de Pokémon diretos, resistentes o bastante e com utilidade clara em vários momentos.",
+    curiosity: "Sandslash raramente é o mais chamativo da região, mas costuma render bastante para quem valoriza função antes de estilo.",
+  },
+  'nidoran-f': {
+    overview: "Nidoran♀ é um início discreto, mas abre caminho para uma linha muito consistente e com boa cobertura na campanha.",
+    practicalUse: "Seu principal valor está em crescer para Nidorina e depois Nidoqueen, oferecendo cedo acesso a uma linha confiável e versátil.",
+    bestFor: "Excelente para jogadores que gostam de progressão clara e de linhas que recompensam investimento no médio prazo.",
+    curiosity: "A linha de Nidoran♀ ficou clássica justamente por transformar uma base simples em uma finalização muito respeitada na Gen 1.",
+  },
+  nidorina: {
+    overview: "Nidorina já mostra bem a consistência da linha feminina dos Nidoran, com mais presença e leitura de uso melhor do que a forma inicial.",
+    practicalUse: "Funciona como etapa intermediária sólida, segurando o time enquanto prepara a chegada de Nidoqueen e sua cobertura mais ampla.",
+    bestFor: "Boa para jogadores que gostam de evoluções escalonadas e de equipes que crescem junto com a jornada.",
+    curiosity: "Nidorina ajuda a tornar a linha memorável por não parecer apenas uma ponte vazia para a forma final.",
+  },
+};

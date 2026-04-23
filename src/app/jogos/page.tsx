@@ -21,15 +21,15 @@ export default function GamesPage() {
   const games = getAllGames();
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Jogos</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+    <div className="max-w-6xl mx-auto space-y-10">
+      <header className="esports-section text-center px-6 py-14">
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Jogos</h1>
+        <p className="text-lg md:text-xl text-[#A0AEC0] max-w-3xl mx-auto leading-8">
           Veja os jogos já conectados ao conteúdo editorial do site e use cada página como atalho para guias, notícias e Pokémon relacionados.
         </p>
       </header>
 
-      <section className="mb-12">
+      <section className="esports-panel px-6 py-8">
         <SectionTitle
           title="Todos os Jogos"
           subtitle="Páginas de jogos com foco em contexto, navegação interna e descoberta de conteúdo."
@@ -47,22 +47,16 @@ export default function GamesPage() {
         </div>
       </section>
 
-      <section className="text-center py-12 bg-gray-50 rounded-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Explore Mais Conteúdo</h2>
-        <p className="text-gray-600 mb-6">
+      <section className="esports-section text-center px-6 py-12">
+        <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Explore Mais Conteúdo</h2>
+        <p className="text-[#A0AEC0] mb-8 max-w-2xl mx-auto leading-7">
           Complete a navegação visitando guias estratégicos, páginas da Pokédex e notícias relacionadas.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/guias"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
+          <Link href="/guias" className="esports-button">
             Ir para Guias
           </Link>
-          <Link
-            href="/pokedex"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
+          <Link href="/pokedex" className="esports-button-secondary">
             Ver Pokédex
           </Link>
         </div>

@@ -68,15 +68,14 @@ export default async function GamePage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedGuides = game.relatedGuides.map(slug => getGuideBySlug(slug)).filter((guide): guide is NonNullable<typeof guide> => guide !== undefined);
-  const relatedNews = game.relatedNews.map(slug => getNewsBySlug(slug)).filter((news): news is NonNullable<typeof news> => news !== undefined);
-  const relatedPokemon = game.relatedPokemon.map(slug => getPokemonBySlug(slug)).filter((pokemon): pokemon is NonNullable<typeof pokemon> => pokemon !== undefined);
+  const relatedGuides = game.relatedGuides.map((itemSlug) => getGuideBySlug(itemSlug)).filter((guide): guide is NonNullable<typeof guide> => guide !== undefined);
+  const relatedNews = game.relatedNews.map((itemSlug) => getNewsBySlug(itemSlug)).filter((news): news is NonNullable<typeof news> => news !== undefined);
+  const relatedPokemon = game.relatedPokemon.map((itemSlug) => getPokemonBySlug(itemSlug)).filter((pokemon): pokemon is NonNullable<typeof pokemon> => pokemon !== undefined);
 
   return (
-    <article className="max-w-4xl mx-auto">
-      {/* Header */}
-      <header className="mb-8">
-        <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
+    <article className="max-w-4xl mx-auto space-y-10">
+      <header className="esports-section px-6 py-8">
+        <div className="relative w-full h-64 mb-6 rounded-[20px] overflow-hidden border border-[rgba(0,212,255,0.16)] shadow-[0_18px_44px_rgba(0,0,0,0.32)]">
           <Image
             src={game.coverImage}
             alt={game.name}
@@ -85,26 +84,25 @@ export default async function GamePage({ params }: PageProps) {
             priority
           />
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{game.name}</h1>
-        <p className="text-lg text-gray-600 mb-6">{game.description}</p>
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{game.name}</h1>
+        <p className="text-lg text-[#A0AEC0] mb-6 leading-8">{game.description}</p>
         {game.targetAudience && (
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">Para Quem é Indicado</h2>
-            <p className="text-gray-700">{game.targetAudience}</p>
+          <div className="esports-panel-alt p-5">
+            <h2 className="text-lg font-bold text-white mb-2">Para Quem é Indicado</h2>
+            <p className="text-[#A0AEC0] leading-7">{game.targetAudience}</p>
           </div>
         )}
       </header>
 
-      {/* Main Mechanics */}
       {game.mainMechanics && game.mainMechanics.length > 0 && (
-        <section className="mb-8">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Principais Mecânicas" />
-          <div className="bg-white p-6 rounded-lg border border-gray-200">
+          <div className="esports-card p-6">
             <ul className="space-y-3">
               {game.mainMechanics.map((mechanic, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-gray-700">{mechanic}</span>
+                  <span className="inline-block w-2 h-2 bg-[#00D4FF] rounded-full mt-2 mr-3 flex-shrink-0 shadow-[0_0_12px_rgba(0,212,255,0.7)]"></span>
+                  <span className="text-[#A0AEC0] leading-7">{mechanic}</span>
                 </li>
               ))}
             </ul>
@@ -112,16 +110,15 @@ export default async function GamePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Beginner Tips */}
       {game.beginnerTips && game.beginnerTips.length > 0 && (
-        <section className="mb-8">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Dicas Iniciais" />
-          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+          <div className="esports-panel-alt p-6">
             <ul className="space-y-3">
               {game.beginnerTips.map((tip, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="inline-block w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-gray-700">{tip}</span>
+                  <span className="inline-block w-2 h-2 bg-[#00D4FF] rounded-full mt-2 mr-3 flex-shrink-0 shadow-[0_0_12px_rgba(0,212,255,0.7)]"></span>
+                  <span className="text-[#A0AEC0] leading-7">{tip}</span>
                 </li>
               ))}
             </ul>
@@ -129,9 +126,8 @@ export default async function GamePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Related Guides */}
       {relatedGuides.length > 0 && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Guias Relacionados" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedGuides.map((guide) => (
@@ -147,9 +143,8 @@ export default async function GamePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Related News */}
       {relatedNews.length > 0 && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Notícias Relacionadas" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {relatedNews.map((news) => (
@@ -166,9 +161,8 @@ export default async function GamePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Related Pokemon */}
       {relatedPokemon.length > 0 && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Pokémon Relacionados" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {relatedPokemon.map((pokemon) => (
@@ -184,47 +178,34 @@ export default async function GamePage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Final CTA */}
-      <section className="text-center py-12 bg-gray-50 rounded-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Explore Mais Conteúdo
-        </h2>
-        <p className="text-gray-600 mb-6">
+      <section className="esports-section text-center px-6 py-12">
+        <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Explore Mais Conteúdo</h2>
+        <p className="text-[#A0AEC0] mb-8 max-w-2xl mx-auto leading-7">
           Descubra guias, Pokédex completa e notícias sobre o universo Pokémon.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/guias"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
+          <Link href="/guias" className="esports-button">
             Explorar Guias
           </Link>
-          <Link
-            href="/pokedex"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
+          <Link href="/pokedex" className="esports-button-secondary">
             Ver Pokédex
           </Link>
-          <Link
-            href="/noticias"
-            className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-          >
+          <Link href="/noticias" className="esports-button-secondary">
             Últimas Notícias
           </Link>
         </div>
       </section>
 
-      {/* Navigation */}
-      <nav className="flex justify-between items-center pt-8 border-t border-gray-200 mt-12">
+      <nav className="flex justify-between items-center pt-8 border-t esports-divider">
         <Link
           href="/jogos"
-          className="text-blue-600 hover:text-blue-700 font-medium"
+          className="text-[#8be9ff] hover:text-white font-semibold"
         >
           ← Voltar para Jogos
         </Link>
         <Link
           href="/"
-          className="text-gray-600 hover:text-gray-700"
+          className="text-[#A0AEC0] hover:text-white"
         >
           Página Inicial
         </Link>

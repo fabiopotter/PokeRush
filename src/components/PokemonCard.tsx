@@ -2,63 +2,77 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface PokemonCardProps {
+  dexNumber?: number;
   name: string;
   image: string;
   types: string[];
   link: string;
 }
 
-export default function PokemonCard({ name, image, types, link }: PokemonCardProps) {
+export default function PokemonCard({ dexNumber, name, image, types, link }: PokemonCardProps) {
   const getTypeColor = (type: string) => {
     const colors: Record<string, string> = {
-      'Fogo': 'bg-red-100 text-red-800 border-red-200',
-      'Água': 'bg-blue-100 text-blue-800 border-blue-200',
-      'Planta': 'bg-green-100 text-green-800 border-green-200',
-      'Elétrico': 'bg-yellow-100 text-yellow-800 border-yellow-200',
-      'Psíquico': 'bg-purple-100 text-purple-800 border-purple-200',
-      'Gelo': 'bg-cyan-100 text-cyan-800 border-cyan-200',
-      'Dragão': 'bg-indigo-100 text-indigo-800 border-indigo-200',
-      'Sombrio': 'bg-gray-100 text-gray-800 border-gray-200',
-      'Fada': 'bg-pink-100 text-pink-800 border-pink-200',
-      'Normal': 'bg-gray-50 text-gray-700 border-gray-200',
-      'Lutador': 'bg-orange-100 text-orange-800 border-orange-200',
-      'Venenoso': 'bg-violet-100 text-violet-800 border-violet-200',
-      'Terrestre': 'bg-amber-100 text-amber-800 border-amber-200',
-      'Voador': 'bg-sky-100 text-sky-800 border-sky-200',
-      'Inseto': 'bg-lime-100 text-lime-800 border-lime-200',
-      'Fantasma': 'bg-purple-100 text-purple-800 border-purple-200',
-      'Pedra': 'bg-stone-100 text-stone-800 border-stone-200',
-      'Metal': 'bg-slate-100 text-slate-800 border-slate-200',
+      'Fogo': 'bg-red-500/12 text-red-200 border-red-400/20',
+      'Água': 'bg-sky-500/12 text-sky-200 border-sky-400/20',
+      'Planta': 'bg-emerald-500/12 text-emerald-200 border-emerald-400/20',
+      'Elétrico': 'bg-yellow-500/12 text-yellow-200 border-yellow-400/20',
+      'Psíquico': 'bg-fuchsia-500/12 text-fuchsia-200 border-fuchsia-400/20',
+      'Gelo': 'bg-cyan-500/12 text-cyan-200 border-cyan-400/20',
+      'Dragão': 'bg-indigo-500/12 text-indigo-200 border-indigo-400/20',
+      'Sombrio': 'bg-slate-500/20 text-slate-200 border-slate-400/20',
+      'Fada': 'bg-pink-500/12 text-pink-200 border-pink-400/20',
+      'Normal': 'bg-gray-500/12 text-gray-200 border-gray-400/20',
+      'Lutador': 'bg-orange-500/12 text-orange-200 border-orange-400/20',
+      'Venenoso': 'bg-violet-500/12 text-violet-200 border-violet-400/20',
+      'Terra': 'bg-amber-500/12 text-amber-200 border-amber-400/20',
+      'Terrestre': 'bg-amber-500/12 text-amber-200 border-amber-400/20',
+      'Voador': 'bg-blue-500/12 text-blue-200 border-blue-400/20',
+      'Inseto': 'bg-lime-500/12 text-lime-200 border-lime-400/20',
+      'Fantasma': 'bg-purple-500/12 text-purple-200 border-purple-400/20',
+      'Pedra': 'bg-stone-500/12 text-stone-200 border-stone-400/20',
+      'Aço': 'bg-slate-400/12 text-slate-100 border-slate-300/20',
+      'Metal': 'bg-slate-400/12 text-slate-100 border-slate-300/20',
+      'Metálico': 'bg-slate-400/12 text-slate-100 border-slate-300/20',
     };
 
-    return colors[type] || 'bg-gray-100 text-gray-800 border-gray-200';
+    return colors[type] || 'bg-slate-500/12 text-slate-200 border-slate-400/20';
   };
 
   return (
-    <Link href={link} className="block group">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all duration-300 p-5 text-center h-full">
-        <div className="relative w-20 h-20 mx-auto mb-4">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-contain group-hover:scale-110 transition-transform duration-300"
-          />
-        </div>
-        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-          {name}
-        </h3>
-        <div className="flex justify-center gap-2 flex-wrap">
-          {types.map((type) => (
-            <span
-              key={type}
-              className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full border ${getTypeColor(type)}`}
-            >
-              {type}
+    <Link href={link} className="group block h-full">
+      <article className="esports-card flex h-full flex-col items-center text-center">
+        <div className="esports-card-content w-full items-center">
+          <div className="relative flex h-24 w-24 items-center justify-center">
+            <Image
+              src={image}
+              alt={name}
+              fill
+              className="object-contain drop-shadow-[0_0_18px_rgba(0,212,255,0.18)] transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
+
+          {dexNumber ? (
+            <span className="esports-tag">
+              #{String(dexNumber).padStart(3, '0')}
             </span>
-          ))}
+          ) : null}
+
+          <h3 className="esports-card-title text-lg group-hover:text-[#7fe8ff] transition-colors">
+            {name}
+          </h3>
+
+          <div className="flex justify-center gap-2 flex-wrap">
+            {types.map((type) => (
+              <span
+                key={type}
+                className={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full border ${getTypeColor(type)}`}
+              >
+                {type}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

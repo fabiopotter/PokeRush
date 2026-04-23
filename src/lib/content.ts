@@ -4,6 +4,7 @@ import { pokemonData } from '@/data/pokemon';
 import { guidesData } from '@/data/guides';
 import { gamesData } from '@/data/games';
 import { newsData } from '@/data/news';
+import { sortPokemonByDexNumber } from '@/data/pokemon-dex';
 
 // Cache para melhorar performance (útil quando dados crescerem)
 let contentCache: {
@@ -285,7 +286,7 @@ export function getPaginatedNews(page: number = 1, limit: number = 10) {
 
 export function getPaginatedPokemon(page: number = 1, limit: number = 12) {
   return ContentUtils.paginate(
-    ContentUtils.sortBy(getAllPokemon(), 'name', 'asc'),
+    sortPokemonByDexNumber(getAllPokemon()),
     page,
     limit
   );

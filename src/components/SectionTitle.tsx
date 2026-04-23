@@ -10,15 +10,15 @@ interface SectionTitleProps {
 export default function SectionTitle({ title, subtitle, moreLink }: SectionTitleProps) {
   return (
     <div className="mb-10">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-          {subtitle && <p className="text-gray-600 text-sm md:text-base leading-relaxed">{subtitle}</p>}
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-3 tracking-tight">{title}</h2>
+          {subtitle && <p className="text-[#A0AEC0] text-sm md:text-base leading-7 max-w-2xl">{subtitle}</p>}
         </div>
         {moreLink && (
           <a
             href={moreLink.href}
-            className="text-blue-600 hover:text-blue-700 font-semibold transition-colors text-sm md:text-base flex items-center gap-1 hover:gap-2 transition-all"
+            className="hidden sm:inline-flex items-center gap-2 text-[#00D4FF] hover:text-white font-semibold text-sm md:text-base"
           >
             {moreLink.text}
             <span className="text-lg">→</span>

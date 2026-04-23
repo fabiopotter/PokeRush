@@ -1,4 +1,5 @@
 import { Pokemon } from '@/types';
+import { kantoFirst151MissingPokemonData } from './kanto-first151';
 
 export const pokemonData: Pokemon[] = [
   {
@@ -16,7 +17,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Eevee",
     slug: "eevee",
-    image: "/images/pokemon/eevee.jpg",
+    image: "/images/pokemon/eevee.jpeg",
     types: ["Normal"],
     shortDescription: "Pequeno Pokémon da evolução com potencial para se transformar em 8 formas diferentes.",
     weaknesses: ["Lutador"],
@@ -40,7 +41,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Bulbasaur",
     slug: "bulbasaur",
-    image: "/images/pokemon/bulbasaur.jpeg",
+    image: "/images/pokemon/bulbasaurnovo.jpeg",
     types: ["Planta", "Venenoso"],
     shortDescription: "Pequeno Pokémon planta com uma semente nas costas que cresce conforme evolui.",
     weaknesses: ["Fogo", "Voador", "Psíquico", "Gelo"],
@@ -64,7 +65,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Charmander",
     slug: "charmander",
-    image: "/images/pokemon/charmander.jpeg",
+    image: "/images/pokemon/charmandernova.png",
     types: ["Fogo"],
     shortDescription: "Pequeno Pokémon lagarto com uma chama na cauda que indica seu estado emocional.",
     weaknesses: ["Água", "Terra", "Pedra"],
@@ -88,7 +89,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Blastoise",
     slug: "blastoise",
-    image: "/images/pokemon/blastoise.jpeg",
+    image: "/images/pokemon/blastoisenovo.jpeg",
     types: ["Água"],
     shortDescription: "Pokémon tartaruga gigante com canhões de água nas costas para ataques poderosos.",
     weaknesses: ["Planta", "Elétrico"],
@@ -136,7 +137,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Dragonite",
     slug: "dragonite",
-    image: "/images/pokemon/dragonite.jpg",
+    image: "/images/pokemon/dragonite.png",
     types: ["Dragão", "Voador"],
     shortDescription: "Pokémon dragão benevolente conhecido como 'monstro marinho' por sua aparência.",
     weaknesses: ["Gelo", "Pedra", "Dragão", "Fada"],
@@ -148,7 +149,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Gardevoir",
     slug: "gardevoir",
-    image: "/images/pokemon/gardevoir.jpg",
+    image: "/images/pokemon/gardevoir.jpeg",
     types: ["Psíquico", "Fada"],
     shortDescription: "Pokémon fada elegante com poderes psíquicos e conexão emocional com seu treinador.",
     weaknesses: ["Venenoso", "Fantasma", "Metálico", "Sombrio"],
@@ -172,7 +173,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Garchomp",
     slug: "garchomp",
-    image: "/images/pokemon/garchomp.jpg",
+    image: "/images/pokemon/garchomp.jpeg",
     types: ["Dragão", "Terra"],
     shortDescription: "Pokémon tubarão terrestre com velocidade extrema e mandíbulas afiadas.",
     weaknesses: ["Gelo", "Dragão", "Fada"],
@@ -256,7 +257,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Gastly",
     slug: "gastly",
-    image: "/images/pokemon/gastly.jpg",
+    image: "/images/pokemon/gastly.jpeg",
     types: ["Fantasma", "Venenoso"],
     shortDescription: "Pokémon gás flutuante que pode se tornar invisível.",
     weaknesses: ["Sombrio", "Psíquico", "Terra", "Fantasma"],
@@ -292,7 +293,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Dratini",
     slug: "dratini",
-    image: "/images/pokemon/dratini.jpg",
+    image: "/images/pokemon/dratini.jpeg",
     types: ["Dragão"],
     shortDescription: "Pokémon dragão bebê que vive em rios limpos.",
     weaknesses: ["Gelo", "Dragão", "Fada"],
@@ -304,7 +305,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Dragonair",
     slug: "dragonair",
-    image: "/images/pokemon/dragonair.jpg",
+    image: "/images/pokemon/dragonair.png",
     types: ["Dragão"],
     shortDescription: "Pokémon dragão elegante com chifres em forma de bigode.",
     weaknesses: ["Gelo", "Dragão", "Fada"],
@@ -436,7 +437,7 @@ export const pokemonData: Pokemon[] = [
   {
     name: "Decidueye",
     slug: "decidueye",
-    image: "/images/pokemon/decidueye.jpg",
+    image: "/images/pokemon/decidueye.jpeg",
     types: ["Planta", "Fantasma"],
     shortDescription: "Pokémon arqueiro com arco feito de galhos e flechas espectrais.",
     weaknesses: ["Fogo", "Voador", "Gelo", "Venenoso", "Sombrio", "Fantasma"],
@@ -552,5 +553,6 @@ export const pokemonData: Pokemon[] = [
     evolutions: ["charcadet"],
     games: ["scarlet-violet"],
     relatedGuides: ["fraquezas-tipo-fogo", "diferenca-ataque-fisico-especial"]
-  }
+  },
+  ...kantoFirst151MissingPokemonData,
 ];

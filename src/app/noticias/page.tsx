@@ -21,60 +21,52 @@ export default function NewsPage() {
   const news = getAllNews();
 
   return (
-    <div className="max-w-6xl mx-auto">
-      {/* Header */}
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Notícias</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+    <div className="max-w-6xl mx-auto space-y-10">
+      <header className="esports-section text-center px-6 py-14">
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-4">Notícias</h1>
+        <p className="text-lg md:text-xl text-[#A0AEC0] max-w-2xl mx-auto leading-8">
           Fique por dentro das últimas novidades e atualizações do universo Pokémon.
         </p>
       </header>
 
-      {/* News Grid */}
-      {news.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {news.map((item) => (
-            <ContentCard
-              key={item.slug}
-              title={item.title}
-              description={item.excerpt}
-              image={item.coverImage}
-              tag="Notícia"
-              link={`/noticias/${item.slug}`}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-gray-600">Nenhuma notícia encontrada.</p>
-        </div>
-      )}
+      <section className="esports-panel px-6 py-8">
+        <SectionTitle
+          title="Últimas Publicações"
+          subtitle="Cobertura curta e direta para levar o leitor aos guias, jogos e páginas da Pokédex mais relevantes."
+        />
+        {news.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {news.map((item) => (
+              <ContentCard
+                key={item.slug}
+                title={item.title}
+                description={item.excerpt}
+                image={item.coverImage}
+                tag="Notícia"
+                link={`/noticias/${item.slug}`}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="esports-panel-alt text-center px-6 py-10">
+            <p className="text-[#A0AEC0]">Nenhuma notícia encontrada.</p>
+          </div>
+        )}
+      </section>
 
-      {/* Call to Action */}
-      <section className="text-center py-12 bg-gray-50 rounded-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Explore Mais Conteúdo
-        </h2>
-        <p className="text-gray-600 mb-6">
+      <section className="esports-section text-center px-6 py-12">
+        <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Explore Mais Conteúdo</h2>
+        <p className="text-[#A0AEC0] mb-8 max-w-2xl mx-auto leading-7">
           Descubra guias completos, Pokédex detalhada e informações sobre jogos.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/guias"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
+          <Link href="/guias" className="esports-button">
             Explorar Guias
           </Link>
-          <Link
-            href="/pokedex"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
+          <Link href="/pokedex" className="esports-button-secondary">
             Ver Pokédex
           </Link>
-          <Link
-            href="/jogos"
-            className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-          >
+          <Link href="/jogos" className="esports-button-secondary">
             Conhecer Jogos
           </Link>
         </div>

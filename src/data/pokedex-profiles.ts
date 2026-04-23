@@ -1,3 +1,8 @@
+import { first30PokemonProfiles } from './pokedex-profiles-first30';
+import { next30PokemonProfiles } from './pokedex-profiles-next30';
+import { rest151PokemonProfilesA } from './pokedex-profiles-rest151-a';
+import { rest151PokemonProfilesB } from './pokedex-profiles-rest151-b';
+
 export interface PokemonProfile {
   overview: string;
   practicalUse: string;
@@ -6,6 +11,10 @@ export interface PokemonProfile {
 }
 
 export const pokedexProfiles: Record<string, PokemonProfile> = {
+  ...first30PokemonProfiles,
+  ...next30PokemonProfiles,
+  ...rest151PokemonProfilesA,
+  ...rest151PokemonProfilesB,
   pikachu: {
     overview: "Pikachu é um atacante leve e veloz, conhecido por pressionar cedo com golpes elétricos simples de usar. Não depende de setups complexos para ser útil.",
     practicalUse: "Funciona melhor como opção rápida para punir Pokémon de Água e Voador. Em equipes casuais, entra bem para finalizar alvos enfraquecidos e manter o ritmo da batalha.",

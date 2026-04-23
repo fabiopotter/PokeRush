@@ -1,54 +1,53 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">PokeRush</h3>
-            <p className="text-gray-600 text-sm leading-relaxed max-w-md">
-              Seu hub de conteúdo em português sobre Pokémon. Notícias, guias e Pokédex para todos os treinadores.
+    <footer className="mt-20 border-t border-[rgba(0,212,255,0.12)] bg-[rgba(8,12,22,0.88)] backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+          <div className="relative">
+            <div className="pointer-events-none absolute -inset-x-8 -inset-y-5 rounded-[42px] bg-[radial-gradient(circle_at_24%_34%,rgba(255,0,0,0.08),transparent_18%),radial-gradient(circle_at_72%_50%,rgba(0,212,255,0.14),transparent_38%)] blur-2xl" />
+            <BrandLogo href="/" compact className="relative" />
+            <p className="mt-5 max-w-md text-sm leading-7 text-[#A0AEC0]">
+              O PokeRush Brasil é um portal de conteúdo Pokémon com foco em notícias, guias, Pokédex e descoberta rápida.
+              Tudo em uma interface mais intensa, moderna e conectada ao universo competitivo e editorial da marca.
             </p>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Navegação</h4>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[#8be9ff]">Navegação</h4>
             <ul className="space-y-3">
-              <li>
-                <Link href="/guias" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Guias
-                </Link>
-              </li>
-              <li>
-                <Link href="/pokedex" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Pokédex
-                </Link>
-              </li>
-              <li>
-                <Link href="/jogos" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Jogos
-                </Link>
-              </li>
-              <li>
-                <Link href="/noticias" className="text-gray-600 hover:text-blue-600 text-sm transition-colors">
-                  Notícias
-                </Link>
-              </li>
+              {[
+                ['/', 'Início'],
+                ['/guias', 'Guias'],
+                ['/pokedex', 'Pokédex'],
+                ['/jogos', 'Jogos'],
+                ['/noticias', 'Notícias'],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="text-sm text-[#A0AEC0] transition-colors hover:text-white">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">Explorar</h4>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Use as páginas de guias, jogos e Pokédex como portas de entrada para o restante do conteúdo editorial do site.
-            </p>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[#8be9ff]">Destaques</h4>
+            <ul className="space-y-3 text-sm text-[#A0AEC0]">
+              <li>Últimas notícias do universo Pokémon</li>
+              <li>Guias para iniciantes e veteranos</li>
+              <li>Pokédex nacional com filtros por tipo</li>
+              <li>Páginas de jogos com interlinking editorial</li>
+            </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-12 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            © 2026 PokeRush. Todos os direitos reservados.
+        <div className="mt-12 border-t border-[rgba(0,212,255,0.1)] pt-8 text-center">
+          <p className="text-sm text-[#6f7f99]">
+            © 2026 PokeRush Brasil. Todos os direitos reservados.
           </p>
         </div>
       </div>

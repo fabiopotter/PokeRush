@@ -79,14 +79,11 @@ export default async function NewsPage({ params }: PageProps) {
   const relatedGame = getRelatedGamesForNews(slug)[0] ?? null;
 
   return (
-    <article className="max-w-4xl mx-auto">
-      {/* Header */}
-      <header className="mb-8">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="inline-block bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded">
-            Notícia
-          </span>
-          <time className="text-gray-500 text-sm">
+    <article className="max-w-4xl mx-auto space-y-10">
+      <header className="esports-section px-6 py-10">
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
+          <span className="esports-tag">Notícia</span>
+          <time className="text-[#7f92ae] text-sm">
             {new Date(news.publishedAt).toLocaleDateString('pt-BR', {
               year: 'numeric',
               month: 'long',
@@ -94,9 +91,9 @@ export default async function NewsPage({ params }: PageProps) {
             })}
           </time>
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">{news.title}</h1>
-        <p className="text-xl text-gray-600 leading-relaxed mb-6">{news.excerpt}</p>
-        <div className="relative w-full h-64 rounded-lg overflow-hidden">
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{news.title}</h1>
+        <p className="text-lg md:text-xl text-[#A0AEC0] leading-8 mb-6">{news.excerpt}</p>
+        <div className="relative w-full h-64 rounded-[20px] overflow-hidden border border-[rgba(0,212,255,0.16)] shadow-[0_18px_44px_rgba(0,0,0,0.32)]">
           <Image
             src={news.coverImage}
             alt={news.title}
@@ -107,18 +104,16 @@ export default async function NewsPage({ params }: PageProps) {
         </div>
       </header>
 
-      {/* Main Content */}
-      <div className="prose prose-lg max-w-none mb-12">
-        <div className="whitespace-pre-line">{news.content}</div>
+      <div className="esports-panel px-6 py-8 prose prose-lg max-w-none">
+        <div className="whitespace-pre-line leading-8">{news.content}</div>
       </div>
 
-      {/* Related Game */}
       {relatedGame && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Jogo Relacionado" />
           <Link
             href={`/jogos/${relatedGame.slug}`}
-            className="block bg-white p-6 rounded-lg border hover:shadow-md transition-shadow"
+            className="esports-card block p-6"
           >
             <div className="flex items-center gap-4">
               <Image
@@ -126,20 +121,19 @@ export default async function NewsPage({ params }: PageProps) {
                 alt={relatedGame.name}
                 width={80}
                 height={80}
-                className="rounded-lg object-cover"
+                className="rounded-xl object-cover border border-[rgba(0,212,255,0.16)]"
               />
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">{relatedGame.name}</h3>
-                <p className="text-gray-600 mt-1">{relatedGame.description}</p>
+                <h3 className="text-lg font-bold text-white">{relatedGame.name}</h3>
+                <p className="text-[#A0AEC0] mt-1 leading-7">{relatedGame.description}</p>
               </div>
             </div>
           </Link>
         </section>
       )}
 
-      {/* Related Guides */}
       {relatedGuides.length > 0 && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Guias Relacionados" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {relatedGuides.map((guide) => (
@@ -155,9 +149,8 @@ export default async function NewsPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Related Pokemon */}
       {relatedPokemon.length > 0 && (
-        <section className="mb-12">
+        <section className="esports-panel px-6 py-8">
           <SectionTitle title="Pokémon Relacionados" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {relatedPokemon.map((pokemon) => (
@@ -173,41 +166,31 @@ export default async function NewsPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Final CTA */}
-      <section className="text-center py-12 bg-gray-50 rounded-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Fique por Dentro das Novidades
-        </h2>
-        <p className="text-gray-600 mb-6">
+      <section className="esports-section text-center px-6 py-12">
+        <h2 className="text-2xl md:text-3xl font-black text-white mb-4">Fique por Dentro das Novidades</h2>
+        <p className="text-[#A0AEC0] mb-8 max-w-2xl mx-auto leading-7">
           Acompanhe todas as notícias sobre o universo Pokémon.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/noticias"
-            className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-          >
+          <Link href="/noticias" className="esports-button">
             Todas as Notícias
           </Link>
-          <Link
-            href="/guias"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
+          <Link href="/guias" className="esports-button-secondary">
             Explorar Guias
           </Link>
         </div>
       </section>
 
-      {/* Navigation */}
-      <nav className="flex justify-between items-center pt-8 border-t border-gray-200 mt-12">
+      <nav className="flex justify-between items-center pt-8 border-t esports-divider">
         <Link
           href="/noticias"
-          className="text-green-600 hover:text-green-700 font-medium"
+          className="text-[#8be9ff] hover:text-white font-semibold"
         >
           ← Voltar para Notícias
         </Link>
         <Link
           href="/"
-          className="text-gray-600 hover:text-gray-700"
+          className="text-[#A0AEC0] hover:text-white"
         >
           Página Inicial
         </Link>

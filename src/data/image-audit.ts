@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { guidesData } from '@/data/guides';
 import { gamesData } from '@/data/games';
 import { newsData } from '@/data/news';
@@ -16,32 +18,17 @@ export interface ImageAuditItem {
   priority: "high" | "medium" | "low";
 }
 
-// Auditoria baseada no estado atual do projeto em disco.
-// Verificado localmente: em public/images só existe /images/og-default.jpg.
-const existingImageRefs = new Set<string>([
-  "/images/og-default.jpg",
-  "/images/pokemon/alakazam.jpeg",
-  "/images/pokemon/annihilape.jpeg",
-  "/images/pokemon/arcanine.jpeg",
-  "/images/pokemon/armarouge.jpeg",
-  "/images/pokemon/blastoise.jpeg",
-  "/images/pokemon/bulbasaur.jpeg",
-  "/images/pokemon/ceruledge.jpeg",
-  "/images/pokemon/charmander.jpeg",
-  "/images/pokemon/pikachu.jpeg",
-  "/images/pokemon/charizard.jpeg",
-  "/images/pokemon/cinderace.jpeg",
-  "/images/pokemon/gengar.jpeg",
-  "/images/pokemon/lucario.jpeg",
-  "/images/games/pokemon-champions-capa.jpeg",
-  "/images/games/pokemon-unite-capa.jpeg",
-  "/images/games/scarlet-violet-capa.jpeg",
-  "/images/games/pkmondas.jpeg",
-  "/images/games/pokopia-capa.jpeg",
-]);
+function imageRefExists(imageRef?: string) {
+  if (!imageRef || !imageRef.startsWith('/')) {
+    return false;
+  }
+
+  const normalizedRef = imageRef.replace(/^\/+/, '');
+  return existsSync(path.join(process.cwd(), 'public', normalizedRef));
+}
 
 const highPriorityPokemonImages: ImageAuditItem[] = pokemonData
-  .filter((pokemon) => !existingImageRefs.has(pokemon.image))
+  .filter((pokemon) => !imageRefExists(pokemon.image))
   .map((pokemon) => ({
     id: `pokemon-${pokemon.slug}-artwork`,
     pageType: "pokemon" as const,
@@ -56,7 +43,7 @@ const highPriorityPokemonImages: ImageAuditItem[] = pokemonData
   }));
 
 const highPriorityGuideImages: ImageAuditItem[] = guidesData
-  .filter((guide) => !existingImageRefs.has(guide.coverImage))
+  .filter((guide) => !imageRefExists(guide.coverImage))
   .map((guide) => ({
     id: `guide-${guide.slug}-cover`,
     pageType: "guide" as const,
@@ -71,7 +58,7 @@ const highPriorityGuideImages: ImageAuditItem[] = guidesData
   }));
 
 const highPriorityGameImages: ImageAuditItem[] = gamesData
-  .filter((game) => !existingImageRefs.has(game.coverImage))
+  .filter((game) => !imageRefExists(game.coverImage))
   .map((game) => ({
     id: `game-${game.slug}-cover`,
     pageType: "game" as const,
@@ -86,7 +73,7 @@ const highPriorityGameImages: ImageAuditItem[] = gamesData
   }));
 
 const highPriorityNewsImages: ImageAuditItem[] = newsData
-  .filter((news) => !existingImageRefs.has(news.coverImage))
+  .filter((news) => !imageRefExists(news.coverImage))
   .map((news) => ({
     id: `news-${news.slug}-cover`,
     pageType: "news" as const,
